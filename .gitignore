@@ -1,0 +1,11 @@
+.venv/
+.cache/
+__pycache__/
+.pytest_cache/
+*.pyc
+runtime/
+weights/
+data/private/
+data/demo/
+artifacts/
+.env
