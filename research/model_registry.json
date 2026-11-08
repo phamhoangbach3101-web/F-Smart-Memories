@@ -1,0 +1,113 @@
+{
+  "verified_date": "2026-10-14",
+  "verification_scope": "Primary documentation and repository listings; not runtime benchmarks",
+  "deployment_recommendation": {
+    "face_detector": "facenet-pytorch MTCNN",
+    "face_encoder": "minchul/cvlface_adaface_ir50_webface4m",
+    "search": "L2-normalized cosine similarity with validation-calibrated threshold",
+    "style_mvp": "pytorch/examples fast_neural_style TransformerNet",
+    "style_upgrade": "diyiiyiii/StyTR-2",
+    "training_required_for_mvp": false
+  },
+  "models": [
+    {
+      "id": "minchul/cvlface_adaface_ir50_webface4m",
+      "role": "primary_face_encoder",
+      "source": "https://huggingface.co/minchul/cvlface_adaface_ir50_webface4m",
+      "provenance": "Author-published CVLFace/AdaFace checkpoint; linked by official GitHub",
+      "revision": "60a65befbcf7e19284c4f3ac730f56867ed29594",
+      "runtime": "PyTorch",
+      "pretrained": true,
+      "input": "Aligned RGB face, 112x112, normalized mean=0.5 std=0.5 per channel",
+      "output": "512-dimensional face embedding; L2-normalize for retrieval",
+      "weights_file": "model.safetensors",
+      "approx_weight_mb": 175,
+      "approx_full_snapshot_mb": 349,
+      "license_note": "Model card requires respecting training-dataset conditions; code MIT does not establish unrestricted checkpoint rights",
+      "caveat": "Use official full loader and pinned code. Legacy AdaFace checkpoints use BGR, unlike this HF RGB checkpoint."
+    },
+    {
+      "id": "timesler/facenet-pytorch",
+      "role": "detector_and_recognition_baseline",
+      "source": "https://github.com/timesler/facenet-pytorch",
+      "provenance": "Tim Esler community PyTorch implementation",
+      "runtime": "PyTorch",
+      "pretrained": true,
+      "components": ["MTCNN", "InceptionResnetV1 pretrained=vggface2"],
+      "caveat": "Use preprocessing for each encoder; validate dependency compatibility on Kaggle. Not an official Google package."
+    },
+    {
+      "id": "insightface/buffalo_l",
+      "role": "optional_pipeline_comparison",
+      "source": "https://github.com/deepinsight/insightface/blob/master/python-package/docs/model_zoo.md",
+      "provenance": "InsightFace official model pack",
+      "runtime": "ONNX Runtime via FaceAnalysis",
+      "pretrained": true,
+      "license_note": "Public pretrained weights restricted to non-commercial research",
+      "caveat": "Not the default choice when inference must use PyTorch throughout"
+    },
+    {
+      "id": "pytorch/examples/fast_neural_style",
+      "role": "primary_mvp_style_transfer",
+      "source": "https://github.com/pytorch/examples/tree/main/fast_neural_style",
+      "download_script": "https://github.com/pytorch/examples/blob/main/fast_neural_style/download_saved_models.py",
+      "provenance": "Official PyTorch examples repository",
+      "runtime": "PyTorch",
+      "pretrained": true,
+      "arbitrary_style_input": false,
+      "weights": ["candy.pth", "mosaic.pth", "rain_princess.pth", "udnie.pth"],
+      "caveat": "One trained checkpoint per preset; VGG16 is the training loss network, not the inference generator"
+    },
+    {
+      "id": "torchvision/vgg19/IMAGENET1K_V1",
+      "role": "optimization_based_nst_baseline",
+      "source": "https://docs.pytorch.org/tutorials/advanced/neural_style_tutorial.html",
+      "runtime": "PyTorch",
+      "pretrained": true,
+      "arbitrary_style_input": true,
+      "caveat": "Backbone is frozen but output pixels are optimized per request; slower than feed-forward inference"
+    },
+    {
+      "id": "diyiiyiii/StyTR-2",
+      "role": "arbitrary_style_upgrade_candidate",
+      "source": "https://github.com/diyiiyiii/StyTR-2",
+      "provenance": "Official author implementation, CVPR 2022",
+      "runtime": "PyTorch",
+      "pretrained": true,
+      "arbitrary_style_input": true,
+      "checkpoint_components": ["vgg-model", "vit_embedding", "decoder", "Transformer_module"],
+      "caveat": "Old reference environment; verify all download links, dependencies, usage terms and quality before adoption"
+    },
+    {
+      "id": "google/magenta/arbitrary-image-stylization-v1-256/2",
+      "role": "corporate_source_tensorflow_alternative",
+      "source": "https://www.tensorflow.org/hub/tutorials/tf2_arbitrary_image_stylization",
+      "model_handle": "https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2",
+      "provenance": "Google Magenta / official TensorFlow tutorial",
+      "runtime": "TensorFlow",
+      "pretrained": true,
+      "arbitrary_style_input": true,
+      "caveat": "Downloadable model, not an automatically available free REST API"
+    }
+  ],
+  "external_api": {
+    "provider": "Stability AI",
+    "endpoint": "https://api.stability.ai/v2beta/stable-image/control/style-transfer",
+    "method": "POST",
+    "required_files": ["init_image", "style_image"],
+    "authentication": "Bearer API key",
+    "source": "https://platform.stability.ai/docs/api-reference",
+    "called_in_this_session": false,
+    "recommendation": "Optional comparison; local PyTorch inference preferred for this coursework"
+  },
+  "datasets": [
+    {"id": "volunteer_event_photos", "role": "primary_domain_evaluation_and_gallery", "status": "To collect with participants' agreement; keep private"},
+    {"id": "LFW", "role": "secondary_recognition_sanity_check", "source": "https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_lfw_people.html"},
+    {"id": "COCO val2017", "role": "style_transfer_content_evaluation", "source": "https://cocodataset.org/#download", "archive": "http://images.cocodataset.org/zips/val2017.zip"},
+    {"id": "The Met Open Access", "role": "public_domain_style_references", "source": "https://metmuseum.github.io/", "filter": "isPublicDomain=true and nonempty primaryImage"},
+    {"id": "Smithsonian Open Access", "role": "optional_style_references", "source": "https://www.si.edu/openaccess/faq", "filter": "Assets individually designated CC0"}
+  ],
+  "excluded_for_recognition": [
+    {"id": "NVlabs/ffhq-dataset", "reason": "Official README says not to use it for development or improvement of facial recognition technologies", "source": "https://github.com/NVlabs/ffhq-dataset"}
+  ]
+}

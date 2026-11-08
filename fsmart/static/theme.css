@@ -1,0 +1,189 @@
+/* F Smart Memories Full-Bleed Photography & Liquid Frosted Glass Design System
+   Editorial Liquid Glassmorphism on Photographic Campus Canvas.
+   Dark mode is default: Airy, highly translucent, obsidian & graphite depth. */
+
+:root {
+  /* Native controls follow dark theme */
+  color-scheme: dark;
+
+  /* Editorial Photographic Canvas & Obsidian Depth */
+  --bg: #0a0e12;
+  --bg-overlay: linear-gradient(180deg, rgba(10, 16, 22, 0.22) 0%, rgba(10, 16, 22, 0.48) 100%);
+  --bg-alt: #12161a;
+
+  /* Surfaces & Frosted Glassmorphism (Translucent Liquid Glass) */
+  --surface-1: rgba(18, 22, 26, 0.42);
+  --surface-2: rgba(255, 255, 255, 0.08);
+  --surface-3: rgba(255, 255, 255, 0.14);
+  --surface-stage: rgba(10, 14, 18, 0.75);
+  --surface-card: rgba(18, 22, 26, 0.42);
+
+  --glass: rgba(255, 255, 255, 0.08);
+  --glass-prominent: rgba(18, 22, 26, 0.42);
+  --glass-header: rgba(18, 22, 26, 0.42);
+  --glass-modal: rgba(18, 22, 26, 0.70);
+  --panel-fill: rgba(18, 22, 26, 0.42);
+  --glass-selected: rgba(255, 255, 255, 0.16);
+  --glass-highlight: rgba(255, 255, 255, 0.15);
+  --popup-bg: #12161a;
+
+  --glass-blur: 30px;
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-border-hover: rgba(255, 255, 255, 0.32);
+  --glass-border-active: rgba(255, 255, 255, 0.45);
+  --glass-rim: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  --glass-rim-subtle: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  --glass-specular: 0 20px 50px rgba(0, 0, 0, 0.30), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  --glass-prismatic: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+
+  /* Typography Colors (Crisp White & Light Slate Gray) */
+  --text: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.75);
+  --text-subtle: rgba(255, 255, 255, 0.55);
+  --text-on-dark: #ffffff;
+  --text-on-brand: #0d1318;
+  --hero-title: #ffffff;
+  --hero-text: #ffffff;
+  --hero-muted: rgba(255, 255, 255, 0.85);
+  --hero-shadow: 0 4px 24px rgba(0, 0, 0, 0.6), 0 2px 6px rgba(0, 0, 0, 0.45);
+
+  --scrim: rgba(10, 14, 18, 0.65);
+  --on-scrim: #ffffff;
+  --on-scrim-muted: rgba(255, 255, 255, 0.85);
+  --star-gold: #fbbf24;
+
+  /* Accents */
+  --accent-blue: #0066ff;
+  --accent-cyan: #38bdf8;
+  --accent-violet: #818cf8;
+  --accent-pink: #f472b6;
+  --accent-amber: #fbbf24;
+  --accent-indigo: #6366f1;
+  --accent-emerald: #10b981;
+
+  /* Buttons & CTAs */
+  --button-primary-bg: #ffffff;
+  --button-primary-hover: #f0f2f5;
+  --button-primary-text: #0d1318;
+  --button-outline-bg: rgba(255, 255, 255, 0.12);
+  --button-outline-border: rgba(255, 255, 255, 0.35);
+  --button-outline-text: #ffffff;
+  --button-outline-hover-bg: rgba(255, 255, 255, 0.22);
+  --button-outline-hover-border: rgba(255, 255, 255, 0.50);
+
+  /* Masterpiece Editorial Gradients */
+  --gradient-brand: #ffffff;
+  --gradient-brand-hover: #f0f2f5;
+  --gradient-text: #ffffff;
+  --gradient-text-subtle: rgba(255, 255, 255, 0.85);
+  --gradient-card: rgba(255, 255, 255, 0.06);
+  --gradient-cover: linear-gradient(180deg, rgba(18, 22, 26, 0.45) 0%, rgba(10, 14, 18, 0.75) 100%);
+  --gradient-stage: radial-gradient(circle at 50% 50%, rgba(18, 22, 26, 0.8) 0%, rgba(10, 14, 18, 0.95) 100%);
+  --gradient-shimmer: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+  --gradient-hologram: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
+  --gradient-aurora: none;
+
+  /* Functional Status Colors */
+  --success: #10b981;
+  --success-bg: rgba(16, 185, 129, 0.16);
+  --success-border: rgba(16, 185, 129, 0.32);
+  --warning: #f59e0b;
+  --warning-bg: rgba(245, 158, 11, 0.16);
+  --warning-border: rgba(245, 158, 11, 0.32);
+  --danger: #ef4444;
+  --danger-bg: rgba(239, 68, 68, 0.16);
+  --danger-border: rgba(239, 68, 68, 0.32);
+  --info: #38bdf8;
+  --info-bg: rgba(56, 189, 248, 0.16);
+  --info-border: rgba(56, 189, 248, 0.32);
+
+  /* Controls & Inputs */
+  --input-bg: rgba(255, 255, 255, 0.08);
+  --input-border: rgba(255, 255, 255, 0.18);
+  --input-text: #ffffff;
+  --input-placeholder: rgba(255, 255, 255, 0.52);
+  --input-focus-border: rgba(255, 255, 255, 0.45);
+  --badge-bg: rgba(255, 255, 255, 0.10);
+  --badge-text: var(--text);
+
+  /* Shadows */
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.18);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.20);
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  --shadow-3d-card: 0 20px 50px rgba(0, 0, 0, 0.30), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  --shadow-3d-hover: 0 28px 60px rgba(0, 0, 0, 0.40), inset 0 1px 0 rgba(255, 255, 255, 0.32);
+  --shadow-button-3d: 0 4px 14px rgba(0, 0, 0, 0.20), 0 1px 3px rgba(0, 0, 0, 0.12);
+  --glow: 0 0 16px rgba(255, 255, 255, 0.12);
+  --glow-pink: none;
+  --glow-cyan: 0 0 16px rgba(0, 102, 255, 0.22);
+  --glow-amber: 0 0 16px rgba(245, 158, 11, 0.22);
+
+  /* Shapes */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Animation */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 0.15s;
+  --dur-base: 0.25s;
+  --dur-slow: 0.45s;
+
+  /* Typography */
+  --font-body: "Be Vietnam Pro", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Playfair Display", "Times New Roman", serif;
+
+  /* Preserved Aliases */
+  --paper: transparent;
+  --white: var(--surface-1);
+  --soft: var(--surface-2);
+  --line: var(--glass-border);
+  --ink: var(--text);
+  --muted: var(--text-muted);
+  --on-dark: var(--text-on-dark);
+  --green: var(--accent-emerald);
+  --orange: var(--accent-amber);
+  --focus: var(--accent-blue);
+  --radius: var(--radius-lg);
+
+  /* Studio Swatches */
+  --swatch-candy: repeating-linear-gradient(135deg, #f472b6 0 10px, #38bdf8 10px 18px, #fbbf24 18px 27px, #c084fc 27px 36px);
+  --swatch-mosaic: conic-gradient(from 30deg, #8b5cf6 0 25%, #22d3ee 0 50%, #f43f5e 0 75%, #fbbf24 0);
+  --swatch-rain: repeating-linear-gradient(110deg, #f59e0b 0 7px, #06b6d4 7px 12px, #ec4899 12px 17px, #8b5cf6 17px 25px);
+  --swatch-udnie: conic-gradient(from 20deg, #ec4899, #8b5cf6, #3b82f6, #22d3ee, #f59e0b, #ec4899);
+  --swatch-custom: linear-gradient(135deg, #1e1b4b, #312e81);
+  --swatch-cinema: linear-gradient(145deg, #4f46e5, #f59e0b);
+  --swatch-portra: linear-gradient(145deg, #d97706, #fed7aa);
+  --swatch-noir: linear-gradient(145deg, #09090b, #71717a);
+  --swatch-cool: linear-gradient(145deg, #0891b2, #a5f3fc);
+  --swatch-sunset: linear-gradient(145deg, #ea580c, #fde047);
+}
+
+/* Full-Bleed Photographic Background (Light scrim maintains visibility of statue, trees & buildings) */
+body {
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--bg);
+  background-image: var(--bg-overlay), url('/static/fsmart-cover.jpg');
+  background-size: cover;
+  background-position: center 12%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: var(--text);
+}
+
+/* Removed Neon Aurora Atmosphere & Stardust Specks */
+body::before,
+body::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Native select popup theming */
+select option,
+select optgroup {
+  background-color: var(--popup-bg, #12161a);
+  color: var(--text, #ffffff);
+}

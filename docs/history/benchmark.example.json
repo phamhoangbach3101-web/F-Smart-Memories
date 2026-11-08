@@ -1,0 +1,11 @@
+{
+  "description": "Replace paths and labels with independent, consented evaluation photos. Paths are relative to this manifest.",
+  "gallery": [
+    {"id": "event_001", "path": "private/gallery/event_001.jpg"},
+    {"id": "event_002", "path": "private/gallery/event_002.jpg"}
+  ],
+  "queries": [
+    {"id": "person_001", "path": "private/query/person_001.jpg", "face_index": 0, "relevant_photo_ids": ["event_001", "event_002"]},
+    {"id": "unknown_001", "path": "private/query/unknown_001.jpg", "face_index": 0, "relevant_photo_ids": []}
+  ]
+}
