@@ -347,6 +347,8 @@ def build(windows: bool = False, package_type: str = 'all', app_name: str = 'FSm
 
 
 if __name__ == '__main__':
+    # The report is in Vietnamese; CI consoles default to a legacy Windows code page.
+    sys.stdout.reconfigure(encoding='utf-8')
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--windows', action='store_true', help='Enforce presence of Windows launcher FSmartMemories.exe')
     parser.add_argument('--type', choices=['all', 'full', 'update'], default='all',
